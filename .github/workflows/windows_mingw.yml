@@ -39,6 +39,10 @@ jobs:
 
       - uses: actions/checkout@v2
 
+      - name: Create directories
+        run: |
+          New-Item -Force -Path '${{ env.MAKE_INSTALL_DIR_PATH }}' -ItemType 'Directory'
+
       # ====================
       # ----- Setup Qt -----
 
