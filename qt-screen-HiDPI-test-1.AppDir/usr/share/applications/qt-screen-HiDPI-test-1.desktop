@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=qt-screen-HiDPI-test-1
+Exec=qt-screen-HiDPI-test-1
+
+# HEY!
+Icon=linuxdeployqt
+
+Categories=Qt;
+Terminal=false
