@@ -24,13 +24,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
-    // https://stackoverflow.com/questions/32589776/qmessagebox-you-can-select-text-from
-    QMessageBox mb;
-    mb.setTextInteractionFlags(
-                Qt::TextInteractionFlag::TextSelectableByKeyboard | Qt::TextInteractionFlag::TextSelectableByMouse);
-
-    mb.setText(
-                QString{
+    QString text = QString{
                                                                                         "%1\n"
                     "QApplication::font().pointSize(): "                                "%2, "
                     "family(): "                                                        "%3\n"
@@ -74,8 +68,14 @@ int main(int argc, char *argv[])
                     QString::number(QGuiApplication::primaryScreen()->devicePixelRatio()),
                     QString::number(QGuiApplication::primaryScreen()->availableGeometry().width()),
                     QString::number(QGuiApplication::primaryScreen()->availableGeometry().height()),
-                    QString::number(QGuiApplication::primaryScreen()->refreshRate()))
-                );
+                    QString::number(QGuiApplication::primaryScreen()->refreshRate()));
+
+    // https://stackoverflow.com/questions/32589776/qmessagebox-you-can-select-text-from
+    QMessageBox mb;
+    mb.setTextInteractionFlags(
+                Qt::TextInteractionFlag::TextSelectableByKeyboard | Qt::TextInteractionFlag::TextSelectableByMouse);
+
+    mb.setText(text);
     mb.exec();
 
     return 0;
