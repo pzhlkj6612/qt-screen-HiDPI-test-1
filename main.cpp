@@ -2,6 +2,7 @@
 #include <QMessageBox>
 #include <QSysInfo>
 #include <QScreen>
+#include <QDebug>
 
 
 QString english{
@@ -69,6 +70,12 @@ int main(int argc, char *argv[])
                     QString::number(QGuiApplication::primaryScreen()->availableGeometry().width()),
                     QString::number(QGuiApplication::primaryScreen()->availableGeometry().height()),
                     QString::number(QGuiApplication::primaryScreen()->refreshRate()));
+
+    auto testLines = text.split('\n');
+
+    for(const QString &testLine: qAsConst(testLines)) {
+        qDebug() << testLine;
+    }
 
     // https://stackoverflow.com/questions/32589776/qmessagebox-you-can-select-text-from
     QMessageBox mb;
