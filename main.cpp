@@ -23,6 +23,10 @@ QString sentences = QString{"%1\n%2\n%3\n%4"}.arg(english, chinese, japanese, ko
 
 int main(int argc, char *argv[])
 {
+#if defined(Q_OS_WIN) || defined(Q_OS_LINUX)
+    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+#endif
+
     QApplication app(argc, argv);
 
     QString text = QString{
